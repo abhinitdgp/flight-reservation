@@ -23,11 +23,11 @@ public class Reservation extends AbstractEntity {
 		this.checkedIn = checkedIn;
 	}
 
-	public int getNumbetOfBags() {
+	public int getNumberOfBags() {
 		return numberOfBags;
 	}
 
-	public void setNumbetOfBags(int numberOfBags) {
+	public void setNumberOfBags(int numberOfBags) {
 		this.numberOfBags = numberOfBags;
 	}
 
