@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+/Reservations/
+/logs/
+/.DS_Store

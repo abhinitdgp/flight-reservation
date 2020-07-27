@@ -2,7 +2,7 @@ package com.abhishek.flightreservation.dto;
 
 public class ReservationRequest {
 	private Long flightId;
-	
+
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -83,6 +83,13 @@ public class ReservationRequest {
 
 	public void setSecurityCode(String securityCode) {
 		this.securityCode = securityCode;
+	}
+
+	@Override
+	public String toString() {
+		return "ReservationRequest [flightId=" + flightId + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", email=" + email + ", phone=" + phone + ", nameOnTheCard=" + nameOnTheCard + ", cardNumber="
+				+ cardNumber + ", expirationDate=" + expirationDate + ", securityCode=" + securityCode + "]";
 	}
 
 }

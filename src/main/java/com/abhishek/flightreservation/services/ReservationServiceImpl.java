@@ -1,8 +1,11 @@
 package com.abhishek.flightreservation.services;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.abhishek.flightreservation.controllers.UserController;
 import com.abhishek.flightreservation.dto.ReservationRequest;
 import com.abhishek.flightreservation.entities.Flight;
 import com.abhishek.flightreservation.entities.Passenger;
@@ -15,6 +18,8 @@ import com.abhishek.flightreservation.util.PDFGenerator;
 
 @Service
 public class ReservationServiceImpl implements ReservationService {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(ReservationServiceImpl.class);
 
 	@Autowired
 	private FlightRepository flightRepository;
@@ -55,7 +60,7 @@ public class ReservationServiceImpl implements ReservationService {
 		String filepath = "/Users/abaggarw/Documents/Personal/Java/J2EE/flightreservation/Reservations/reservation"
 				+ savedReservation.getId() + ".pdf";
 		pdfGenerator.generateItinerary(savedReservation, filepath);
-		//emailUtil.sendItinerary(savedPassenger.getEmail(), filepath);
+		// emailUtil.sendItinerary(savedPassenger.getEmail(), filepath);
 		return savedReservation;
 	}
 

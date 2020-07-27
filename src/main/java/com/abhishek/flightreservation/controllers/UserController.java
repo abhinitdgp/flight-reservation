@@ -22,18 +22,27 @@ public class UserController {
 
 	@RequestMapping("/showReg")
 	public String showRegistrationPage() {
+		String methodName = new Object() {
+		}.getClass().getEnclosingMethod().getName();
+		LOGGER.info("Inside " + methodName);
 		return "login/registerUser";
 
 	}
 
 	@RequestMapping("/showLogin")
 	public String showLoginPage() {
+		String methodName = new Object() {
+		}.getClass().getEnclosingMethod().getName();
+		LOGGER.info("Inside " + methodName);
 		return "login/login";
 
 	}
 
 	@RequestMapping(value = "/registerUser", method = RequestMethod.POST)
 	public String register(@ModelAttribute("user") User user) {
+		String methodName = new Object() {
+		}.getClass().getEnclosingMethod().getName();
+		LOGGER.info("Inside " + methodName + " " + user);
 		userRepository.save(user);
 		return "login/login";
 
@@ -42,11 +51,9 @@ public class UserController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@RequestParam("email") String email, @RequestParam("password") String password,
 			ModelMap modelMap) {
-		LOGGER.error("ERROR");
-		LOGGER.warn("WARN");
-		LOGGER.info("INFO");
-		LOGGER.debug("DEBUG");
-		LOGGER.trace("TRACE");
+		String methodName = new Object() {
+		}.getClass().getEnclosingMethod().getName();
+		LOGGER.info("Inside " + methodName + " and the email is: " + email);
 		User user = userRepository.findByEmail(email);
 		if (user.getPassword().equals(password)) {
 			return "findFlights";
